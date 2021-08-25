@@ -4,7 +4,7 @@ Cool thing is nodemon
 have the bot have a command where you can set the loser of the server, and whenever they type it tells them how stupid they are with random responses
 
 # Dependencies
-## / DiscordJS / Dotenv /
+/ DiscordJS / Dotenv /
 
 
 ## How To Use
