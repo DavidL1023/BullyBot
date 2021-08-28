@@ -5,16 +5,17 @@
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MannB1023/discord-bot.git"
+    "url": "git+https://github.com/MannB1023/discord-bully-bot"
   },
   "author": "David",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MannB1023/discord-bot/issues"
+    "url": "https://github.com/MannB1023/discord-bully-bot/issues"
   },
-  "homepage": "https://github.com/MannB1023/discord-bot#readme",
+  "homepage": "https://github.com/MannB1023/discord-bully-bot#readme",
   "dependencies": {
     "discord.js": "^13.2.0-dev.1629807143.c232baa",
-    "dotenv": "^10.0.0"
+    "dotenv": "^10.0.0",
+    "insult": "^0.0.3"
   }
 }
