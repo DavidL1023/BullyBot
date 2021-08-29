@@ -18,4 +18,3 @@ Also, you can modify the Insult package by entering ./node_modules/insult/data/i
 
 ## Video in Action
 
-figure out how to have multiple instances of bots for servers
