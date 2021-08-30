@@ -7,8 +7,7 @@ require('dotenv').config();
 const { Client, Collection } = require('discord.js');
 // Create a new client instance
 const client = new Client({ intents: 4609 }); // GUILDS, GUILD_MESSAGES, DIRECT_MESSAGES
-const guildCache = new Collection(); //For saving independent server variables
-
+const guildList = new Collection(); //For saving independent server variables
 // Functions
 function getUserFromMention(mention) {
     if (!mention) return;
@@ -30,26 +29,27 @@ client.once('ready', () => {
     });
     // Map servers to cache for variables (also done on server join and leave)
     client.guilds.cache.forEach(guild => {
-        guildCache.set(guild.id, {
-            bullyTarget: undefined,
-            lastInsultGenerated: undefined
+        guildList.set(guild.id, {
+            bullyTarget: '',
+            lastInsultGenerated: ''
         });
     });
-    console.log(guildCache);
+    console.log(guildList);
     console.log('');
 });;
 
 // On join server
 client.on('guildCreate', async (guild) => {
     console.log(`[Client]: Joined \"${guild.name}\"!`);
-    guildCache.set(guild.id, {
-        bullyTarget: undefined,
-        lastInsultGenerated: undefined
+    guildList.set(guild.id, {
+        bullyTarget: '',
+        lastInsultGenerated: ''
     });
-    console.log(guildCache);
+    console.log(guildList);
     console.log('');
 
-    await client.users.cache.get(guild.ownerId).send({
+    const owner = await guild.fetchOwner()
+    await owner.send({
         content: 'You\'ll ***regret*** adding me.',
         files: [{
           attachment: 'src/Data/trollge.jpg',
@@ -63,15 +63,18 @@ client.on('guildCreate', async (guild) => {
 // On leave server
 client.on('guildDelete', (guild) => {
     console.log(`[Client]: Left \"${guild.name}\" :(`);
-
-    guildCache.delete(guild.id);
-    console.log(guildCache);
+    guildList.delete(guild.id);
+    console.log(guildList);
     console.log('');
 });
 
-// Check if message starts with command prefix, if not it returns
+// Check for server message
 client.on('messageCreate', async (message) => {
-    const guildValues = guildCache.get(message.guild.id);
+    if(message.author == client.user || message.author.bot || message.channel.type === 'dm'){
+        return;
+    }
+    const server = await message.guildId;
+    const guildValues = guildList.get(server);
     let botReply;
     let mentionedUser;
 
@@ -95,7 +98,7 @@ client.on('messageCreate', async (message) => {
                             botReply = 'I\'m not going to bully myself.';
                         }else if(mentionedUser == guildValues.bullyTarget) {
                             botReply = 'I\'m already doing that.';
-                        }else if(typeof guildValues.bullyTarget !== 'undefined'){
+                        }else if(guildValues.bullyTarget !== ''){
                             guildValues.bullyTarget = mentionedUser;
                             botReply = `Switching target to ${guildValues.bullyTarget}.`
                         }else{
@@ -107,16 +110,16 @@ client.on('messageCreate', async (message) => {
                     }
                     break;
                 case 'current':
-                    if(typeof guildValues.bullyTarget !== 'undefined'){
+                    if(guildValues.bullyTarget !== ''){
                         botReply = `Currently shitting on ${guildValues.bullyTarget}.`
                     }else{
                         botReply = 'I\'m currently not bullying anyone.'
                     }
                     break;
                 case 'clear':
-                    if(typeof guildValues.bullyTarget !== 'undefined'){
+                    if(guildValues.bullyTarget !== ''){
                         botReply = `No longer bullying ${guildValues.bullyTarget}.`
-                        guildValues.bullyTarget = undefined;
+                        guildValues.bullyTarget = '';
                     }else{
                         botReply = 'I\'m currently not bullying anyone.'
                     }
