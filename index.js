@@ -1,9 +1,9 @@
 console.clear();
 
 // Require the necessary modules
+//require('dotenv').config();
 const config = require('./data/config.json');
 const insulter = require('./insult/src');
-require('dotenv').config();
 const { Client, Collection } = require('discord.js');
 // Create a new client instance
 const client = new Client({ intents: 4609 }); // GUILDS, GUILD_MESSAGES, DIRECT_MESSAGES
