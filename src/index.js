@@ -2,7 +2,7 @@ console.clear();
 
 // Require the necessary modules
 const config = require('./Data/config.json');
-const insulter = require('insult');
+const insulter = require('./insult');
 require('dotenv').config();
 const { Client, Collection } = require('discord.js');
 // Create a new client instance

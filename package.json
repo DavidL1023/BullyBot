@@ -15,7 +15,6 @@
   "homepage": "https://github.com/MannB1023/discord-bully-bot#readme",
   "dependencies": {
     "discord.js": "^13.2.0-dev.1629807143.c232baa",
-    "dotenv": "^10.0.0",
-    "insult": "^0.0.3"
+    "dotenv": "^10.0.0"
   }
 }
