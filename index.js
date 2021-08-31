@@ -1,8 +1,8 @@
 console.clear();
 
 // Require the necessary modules
-const config = require('./Data/config.json');
-const insulter = require('./insult');
+const config = require('./data/config.json');
+const insulter = require('./insult/src');
 require('dotenv').config();
 const { Client, Collection } = require('discord.js');
 // Create a new client instance
@@ -52,7 +52,7 @@ client.on('guildCreate', async (guild) => {
     await owner.send({
         content: 'You\'ll ***regret*** adding me.',
         files: [{
-          attachment: 'src/Data/trollge.jpg',
+          attachment: './data/trollge.jpg',
           name: 'trollge.jpg'
         }]
       })
