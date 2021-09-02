@@ -160,14 +160,21 @@ client.on('messageCreate', async (message) => {
         await message.reply(botReply)
             .then(console.log(`[${client.user.tag}]: ${botReply}\n`))
             .catch(console.error);
-
+    
+    // Check if someone mentions bot (prefered over bully message)
+    }else if(message.mentions.has(bot.user)){
+        console.log(`*[${message.author.tag}](${message.guild.id}): ${message.content}`);
+        let botReply = 'Someone say something?';
+        await message.reply(botReply)
+            .then(console.log(`[${client.user.tag}]: ${botReply}\n`))
+            .catch(console.error);
 
     // Check if bully target typed regular message
     }else if(message.author == guildValues.bullyTarget){
         console.log(`*[${message.author.tag}](${message.guild.id}): ${message.content}`);
 
         // Send insult on percent chance and ensure not repeating itself
-        let roll = Math.random()
+        let roll = Math.random();
         if(roll > 0.65){
             let botReply = insulter.Insult();
             while(botReply == guildValues.lastInsultGenerated){
@@ -180,7 +187,6 @@ client.on('messageCreate', async (message) => {
         }else{
             console.log('[Client]: Did not roll insult chance.\n');
         }
-
     }
 });
 
