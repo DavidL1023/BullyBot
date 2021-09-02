@@ -162,7 +162,7 @@ client.on('messageCreate', async (message) => {
             .catch(console.error);
     
     // Check if someone mentions bot (prefered over bully message)
-    }else if(message.mentions.has(bot.user)){
+    }else if(message.mentions.has(client.user)){
         console.log(`*[${message.author.tag}](${message.guild.id}): ${message.content}`);
         let botReply = 'Someone say something?';
         await message.reply(botReply)
