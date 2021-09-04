@@ -21,4 +21,5 @@ This bot basically bullies a target that you select, and each server has its own
 *Also, you can modify the Insult package by finding .insult/data/insults.js, add insults here.*
 
 ## Video in Action
+### [Discord bully bot](https://youtu.be/pyE2OWJ4U1c)
 
