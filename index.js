@@ -96,7 +96,9 @@ client.on('messageCreate', async (message) => {
                     if(typeof mentionedUser !== 'undefined'){
                         if(mentionedUser == client.user){
                             botReply = 'I\'m not going to bully myself.';
-                        }else if(mentionedUser == guildValues.bullyTarget) {
+                        }else if(mentionedUser.user.bot){
+                            botReply = 'It has no feelings, impossible.'
+                        }else if(mentionedUser == guildValues.bullyTarget){
                             botReply = 'I\'m already doing that.';
                         }else if(guildValues.bullyTarget !== ''){
                             guildValues.bullyTarget = mentionedUser;
