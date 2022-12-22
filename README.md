@@ -13,7 +13,7 @@ Invite link for v13 bot => [Click me!](https://discord.com/api/oauth2/authorize?
 
 This bot basically bullies a target that you select, and each server has its own variables so nothing overlaps. It has a percent chance to pretty much roast the target when they type. Use the bot and find out all of the little details I put into it!
 
-*Should be running 24/7 since I'm using Heroku. To get started when the bot when it is in your server, send the help command that the bot has in its profile info.*
+*To get started when the bot when it is in your server, send the help command that the bot has in its profile info.*
 
 *For authorization when programming the bot, you must uncomment the dotenv requirement and you must create a '.env' file in parent directory and enter this line of code*
 --> DISCORDJS_BOT_TOKEN=(*insert bots token from Discord*)
