@@ -15,8 +15,8 @@ This bot basically bullies a target that you select, and each server has its own
 
 *To get started when the bot when it is in your server, send the help command that the bot has in its profile info.*
 
-*For authorization when programming the bot, you must uncomment the dotenv requirement and you must create a '.env' file in parent directory and enter this line of code*
---> DISCORDJS_BOT_TOKEN=(*insert bots token from Discord*)
+*For authorization when running the bot either from your computer or from a third party host, you must uncomment the dotenv requirement and create a '.env' file in parent directory and enter this line of code*
+--> DISCORDJS_BOT_TOKEN=(*insert bots token from Discord Developer Portal*)
 
 *Also, you can modify the Insult package by finding .insult/data/insults.js, add insults here.*
 
