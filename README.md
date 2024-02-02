@@ -17,3 +17,5 @@ Invite link for v13 bot => [Click me!](https://discord.com/api/oauth2/authorize?
 --> DISCORDJS_BOT_TOKEN=*insert bots token from Discord Developer Portal*
 
 *Also, you can modify the Insult package by finding .insult/data/insults.js, add insults here.*
+
+https://github.com/DavidL1023/BullyBot/assets/80372643/d00dd96c-fc34-4e42-b7ef-19e85df4a4b6
