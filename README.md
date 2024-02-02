@@ -19,3 +19,5 @@ Invite link for v13 bot => [Click me!](https://discord.com/api/oauth2/authorize?
 *Also, you can modify the Insult package by finding .insult/data/insults.js, add insults here.*
 
 https://github.com/DavidL1023/BullyBot/assets/80372643/d00dd96c-fc34-4e42-b7ef-19e85df4a4b6
+
+![6](https://github.com/DavidL1023/BullyBot/assets/80372643/faec8826-d872-4f8e-b79e-f8c0f87d7695)
